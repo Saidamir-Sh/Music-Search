@@ -9,19 +9,15 @@ import SongDetail from './components/SongDetail';
 
 function App() {
   return (
-    <Container fluid={true}>
+    <Container fluid={true} className='bg-dark w-100 vh-100'>
       <BrowserRouter>
         <Row>
-          <Col md={12}>
             <Routes>
               <Route path='/' element={<MainSearch />} />
             </Routes>
-          </Col>
-          <Col md={12}> 
             <Routes>
               <Route path='/' element={<SongList />}/>
             </Routes>
-          </Col>
         </Row>
         <Routes>
           <Route path='/songdetail/:id' element={<SongDetail />} />
