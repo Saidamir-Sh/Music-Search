@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import {Col} from 'react-bootstrap'
 import { Form } from 'react-bootstrap'
+import Loader from './Loader';
 import SingleSong from './SingleSong';
 
 interface Query {
@@ -44,20 +45,21 @@ const MainSearch = () => {
             console.log(error)
         }
     }
+    console.log(isLoading)
+    console.log(music)
   return ( 
     <Col md={6} className='mx-auto'>
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Search for song</Form.Label>
+              <Form.Label className='text-white'>Search for song</Form.Label>
               <Form.Control type="text" placeholder="Search..." onChange={handleInput}/>
             </Form.Group>
         </Form>
-        {/* {
-            music.map((music) => {
-                 <SingleSong music={music} key={music.id}/>
-                
+        {
+            isLoading ? <Loader /> : music.map((music) => {
+                console.log(music.title)
             })
-        } */}
+        }
     </Col>
     );
 }
